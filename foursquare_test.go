@@ -38,3 +38,15 @@ func TestVenueDetail(t *testing.T) {
 	}
 	t.Logf("%+v", venue)
 }
+
+func TestUserDetail(t *testing.T) {
+	flag.Parse()
+	client := NewClient(*accessToken)
+	user, err := client.UserDetail("223")
+
+	if err != nil {
+		t.Errorf("error: %v", err)
+		return
+	}
+	t.Logf("%+v", user)
+}
